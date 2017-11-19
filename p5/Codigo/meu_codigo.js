@@ -283,6 +283,9 @@ function draw() {
  if(tela==1){
 background(0);
 image (imgcomeco,20,20)
+fill(0, 234, 255);
+rect(330, 400, 210, 70, 5);
+rect(330,500,210,70,5);
 image (imgplay,330,400)
 image (imgoptions, 330,500)
 fill(0, 0, 0);
