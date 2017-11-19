@@ -38,7 +38,11 @@ var play
 var options
 function preload(){
 
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 1d0a1763f6973a61c246b06fd6a59b86ad335cae
 	cenario1=[
 	['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
 	['D','P','P','D','D','D','D','D','P','P','P','D','D','P','P','P','P','P','D','D'],
@@ -268,22 +272,32 @@ function pacMan(posPacX, posPacY) {
 
 function setup() {
   createCanvas(960,930);
+<<<<<<< HEAD
     imgcomeco= loadImage("imagens/pacman.jpg")
 	imgoptions=loadImage("Imagens/options.jpg")
 	imgplay=loadImage ("Imagens/play.jpg")
+=======
+ 	imgcomeco= loadImage("imagens/pacman.jpg")
+	imgoptions=loadImage("Imagens/Options.jpg")
+	imgplay=loadImage ("Imagens/Play.jpg")
+	
+>>>>>>> 1d0a1763f6973a61c246b06fd6a59b86ad335cae
 }
 
 function draw() {
  frameRate(fps)
  if(tela==1){
-	  background(0);
+background(0);
 image(imgcomeco,20,20)
+<<<<<<< HEAD
 image(imgoptions,330,500)
 image(imgplay,330,400)
+=======
+image(imgplay,330,400)
+image(imgoptions, 330,500)
+>>>>>>> 1d0a1763f6973a61c246b06fd6a59b86ad335cae
 fill(0, 0, 0);
 textSize(35);
-text("Jogar	", 360, 435);
-text("Opções",360,535);
   mouseClicked = function() {
     if (mouseX >= 330 && mouseX <= 540 &&
         mouseY >= 400 && mouseY <= 470) {
