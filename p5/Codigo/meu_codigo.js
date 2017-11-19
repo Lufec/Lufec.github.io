@@ -269,8 +269,8 @@ function pacMan(posPacX, posPacY) {
 function setup() {
   createCanvas(960,930);
     imgcomeco= loadImage("imagens/pacman.jpg")
-	imgoptions=loadImage("Imagens/Options.jpg")
-	imgplay=loadImage ("Imagens/Play.jpg")
+	imgoptions=loadImage("Imagens/options.jpg")
+	imgplay=loadImage ("Imagens/play.jpg")
 }
 
 function draw() {
