@@ -270,9 +270,9 @@ function pacMan(posPacX, posPacY) {
 function setup() {
   createCanvas(960,930);
 
-    imgcomeco= loadImage("imagens/pacman.jpg")
-	imgoptions=loadImage("imagens/options.jpg")
-	imgplay=loadImage ("imagens/play.jpg")
+    imgcomeco= loadImage("imagens/pacman.jpg");
+	imgoptions=loadImage("imagens/options.jpg");
+	imgplay=loadImage ("imagens/play.jpg");
 
 	
 
@@ -282,12 +282,12 @@ function draw() {
  frameRate(fps)
  if(tela==1){
 background(0);
-//image (imgcomeco,20,20,800,450)
+image (imgcomeco,20,20,800,450);
 fill(0, 234, 255);
 rect(330, 500, 210, 70, 5);
 rect(330,600,210,70,5);
-image (imgplay,330,500)
-image (imgoptions, 330,600)
+image (imgplay,330,500);
+image (imgoptions, 330,600);
 fill(0, 0, 0);
   mouseClicked = function() {
     if (mouseX >= 330 && mouseX <= 540 &&
