@@ -37,7 +37,7 @@ var nomejogo
 var play
 var options
 function preload(){
-	imgcomeco= loadImage("imagens/pacman.jpg")
+
 	//imgoptions=loadImage("C:\Users\Lufec\Downloads\Matérias\2º Semestre\LoP\p5\p5\Código\Imagens/Options.jpg")
 	//imgplay=loadImage ("C:\Users\Lufec\Downloads\Matérias\2º Semestre\LoP\p5\p5\Código\Imagens/Play.jpg")
 	
@@ -270,7 +270,7 @@ function pacMan(posPacX, posPacY) {
 
 function setup() {
   createCanvas(960,930);
-
+   imgcomeco= loadImage("imagens/pacman.jpg")
 }
 
 function draw() {
