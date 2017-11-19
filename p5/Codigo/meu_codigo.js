@@ -282,7 +282,7 @@ function draw() {
  frameRate(fps)
  if(tela==1){
 background(0);
-image (imgcomeco,20,20,800,450)
+//image (imgcomeco,20,20,800,450)
 fill(0, 234, 255);
 rect(330, 500, 210, 70, 5);
 rect(330,600,210,70,5);
