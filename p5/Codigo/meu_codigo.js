@@ -282,20 +282,20 @@ function draw() {
  frameRate(fps)
  if(tela==1){
 background(0);
-	image (imgcomeco,20,20,400,350)
+image (imgcomeco,20,20,800,450)
 fill(0, 234, 255);
-rect(330, 400, 210, 70, 5);
-rect(330,500,210,70,5);
-image (imgplay,330,400)
-image (imgoptions, 330,500)
+rect(330, 500, 210, 70, 5);
+rect(330,600,210,70,5);
+image (imgplay,330,500)
+image (imgoptions, 330,600)
 fill(0, 0, 0);
   mouseClicked = function() {
     if (mouseX >= 330 && mouseX <= 540 &&
-        mouseY >= 400 && mouseY <= 470) {
+        mouseY >= 500 && mouseY <= 570) {
         tela=2;    
     }
     else if(mouseX>=330&& mouseX<=540 &&
-			mouseY>=500 && mouseY<=570){
+			mouseY>=600 && mouseY<=670){
 				tela=9
 			}
 }
