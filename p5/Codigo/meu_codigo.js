@@ -38,8 +38,6 @@ var play
 var options
 function preload(){
 
-	//imgoptions=loadImage("C:\Users\Lufec\Downloads\Matérias\2º Semestre\LoP\p5\p5\Código\Imagens/Options.jpg")
-	//imgplay=loadImage ("C:\Users\Lufec\Downloads\Matérias\2º Semestre\LoP\p5\p5\Código\Imagens/Play.jpg")
 	
 	cenario1=[
 	['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
@@ -270,7 +268,9 @@ function pacMan(posPacX, posPacY) {
 
 function setup() {
   createCanvas(960,930);
-   imgcomeco= loadImage("imagens/pacman.jpg")
+    imgcomeco= loadImage("imagens/pacman.jpg")
+	imgoptions=loadImage("Imagens/Options.jpg")
+	imgplay=loadImage ("Imagens/Play.jpg")
 }
 
 function draw() {
@@ -278,9 +278,8 @@ function draw() {
  if(tela==1){
 	  background(0);
 image(imgcomeco,20,20)
-fill(0, 234, 255);
-rect(330, 400, 210, 70, 5);
-rect(330,500,210,70,5);
+image(imgoptions,330,500)
+image(imgplay,330,400)
 fill(0, 0, 0);
 textSize(35);
 text("Jogar	", 360, 435);
