@@ -1,0 +1,338 @@
+var Px = 45;
+var Py = 45;
+var tamBloco=30;
+var numGhost=2000
+var Ghostx=[];
+var Ghosty=[];
+var gdx=[];
+var gdy=[];
+var distpg=[];
+var pontox=[];
+var pontoy=[];
+var veloc = 5
+var vida=3
+var pontos=0
+var distpp;
+var recorde=0;
+var direcao;
+var posDx;
+var posDy;
+var posC;
+var posL;
+
+alert("Comandos:\n Cima:W \n Baixo:S \n Esquerda:A  \n Direita:D \n Subir Dificuldade: Cima \n Reduzir dificuldade: Baixo "
+		)
+		
+function preload(){
+	cenario=[
+	['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
+	['B','D','P','P','P','P','D','P','P','P','P','P','D','B','B','D','P','P','P','P','P','D','P','P','P','P','D','B'],
+	['B','P','B','B','B','B','P','B','B','B','B','B','P','B','B','P','B','B','B','B','B','P','B','B','B','B','P','B'],
+	['B','P','B','B','B','B','P','B','B','B','B','B','P','B','B','P','B','B','B','B','B','P','B','B','B','B','P','B'],
+	['B','P','B','B','B','B','P','B','B','B','B','B','P','B','B','P','B','B','B','B','B','P','B','B','B','B','P','B'],
+	['B','D','P','P','P','P','D','P','P','D','P','P','D','P','P','D','P','P','D','P','P','D','P','P','P','P','D','B'],
+	['B','P','B','B','B','B','P','B','B','P','B','B','B','B','B','B','B','B','P','B','B','P','B','B','B','B','P','B'],
+	['B','P','B','B','B','B','P','B','B','P','B','B','B','B','B','B','B','B','P','B','B','P','B','B','B','B','P','B'],
+	['B','D','P','P','P','P','D','B','B','D','P','P','D','B','B','D','P','P','D','B','B','D','P','P','P','P','D','B'],
+	['B','B','B','B','B','B','P','B','B','B','B','B','P','B','B','P','B','B','B','B','B','P','B','B','B','B','B','B'],
+	['B','B','B','B','B','B','P','B','B','B','B','B','P','B','B','P','B','B','B','B','B','P','B','B','B','B','B','B'],
+	['B','B','B','B','B','B','P','B','B','D','P','P','D','P','P','D','P','P','D','B','B','P','B','B','B','B','B','B'],
+	['B','B','B','B','B','B','P','B','B','P','B','B','P','B','B','P','B','B','P','B','B','P','B','B','B','B','B','B'],
+	['B','B','B','B','B','B','P','B','B','P','B','B','P','B','B','P','B','B','P','B','B','P','B','B','B','B','B','B'],
+	['P','P','P','P','P','P','D','P','P','D','B','B','P','B','B','P','B','B','D','P','P','D','P','P','P','P','P','P'],
+	['B','B','B','B','B','B','P','B','B','P','B','B','P','B','B','P','B','B','P','B','B','P','B','B','B','B','B','B'],
+	['B','B','B','B','B','B','P','B','B','P','B','B','P','B','B','P','B','B','P','B','B','P','B','B','B','B','B','B'],
+	['B','B','B','B','B','B','P','B','B','D','P','P','D','P','P','D','P','P','D','B','B','P','B','B','B','B','B','B'],
+	['B','B','B','B','B','B','P','B','B','P','B','B','B','B','B','B','B','B','P','B','B','P','B','B','B','B','B','B'],
+	['B','B','B','B','B','B','P','B','B','P','B','B','B','B','B','B','B','B','P','B','B','P','B','B','B','B','B','B'],
+	['B','D','P','P','P','P','D','P','P','D','P','P','D','B','B','D','P','P','D','P','P','D','P','P','P','P','D','B'],	
+	['B','P','B','B','B','B','P','B','B','B','B','B','P','B','B','P','B','B','B','B','B','P','B','B','B','B','P','B'],
+	['B','P','B','B','B','B','P','B','B','B','B','B','P','B','B','P','B','B','B','B','B','P','B','B','B','B','P','B'],
+	['B','D','P','D','B','B','D','P','P','D','P','P','D','P','P','D','P','P','D','P','P','D','B','B','D','P','D','B'],
+	['B','B','B','P','B','B','P','B','B','P','B','B','B','B','B','B','B','B','P','B','B','P','B','B','P','B','B','B'],
+	['B','B','B','P','B','B','P','B','B','P','B','B','B','B','B','B','B','B','P','B','B','P','B','B','P','B','B','B'],
+	['B','D','P','D','P','P','D','B','B','D','P','P','D','B','B','D','P','P','D','B','B','D','P','P','D','P','D','B'],
+	['B','P','B','B','B','B','B','B','B','B','B','B','P','B','B','P','B','B','B','B','B','B','B','B','B','B','P','B'],
+	['B','P','B','B','B','B','B','B','B','B','B','B','P','B','B','P','B','B','B','B','B','B','B','B','B','B','P','B'],
+	['B','D','P','P','P','P','P','P','P','P','P','P','D','P','P','D','P','P','P','P','P','D','P','P','P','P','D','B'],
+	['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B']
+	
+	];
+}
+	
+	
+function colisao(px, py) {
+  posColuna = Math.floor( px / tamBloco ); 
+  posLinha = Math.floor( py / tamBloco );
+  if ( cenario[posLinha][posColuna] == 'B' ) {
+     return true;     
+     
+  }
+  else {
+     return false;  
+  }
+}
+function mudardirecao (gx,gy){
+	posColuna = Math.floor(gx/tamBloco);
+	posLinha = Math.floor(gy/ tamBloco);
+	if( cenario[posLinha][posColuna]== 'D'){
+		return true;
+	}
+	else{
+		return false
+	
+	}
+}
+function colisaoponto (px,py){
+	posColuna = Math.floor(px/tamBloco);
+	posLinha = Math.floor(py/ tamBloco);
+	if( cenario[posLinha][posColuna]== 'P'|| cenario[posLinha][posColuna]== 'D'){
+		return true;
+	}
+	else{
+		return false
+	
+	}
+}
+
+
+function pacMan(posPacX, posPacY) {
+  stroke(250,250,5); 
+  strokeWeight(3); 
+  fill(230,230,0);
+  arc(posPacX+2, posPacY+2, tamBloco -6, tamBloco-6, PI/6,TWO_PI - PI/6, PIE);
+  strokeWeight(1); 
+  fill(0,0,0);
+  ellipse(posPacX,posPacY-(tamBloco)/5,tamBloco/6, tamBloco/6);    
+}
+
+function setup() {
+  createCanvas(840,930);
+  frameRate(60);
+  for(i=0;i<numGhost;i++){
+	  Ghostx[i]=375
+	  Ghosty[i]=375
+	  gdx[i]=0
+	  gdy[i]=-veloc
+	    }
+  
+}
+
+function draw() {
+
+	distpp=(dist(Px,Py,pontox,pontoy))
+  background(0);
+  
+for ( i = 0; i < cenario.length; i++ ) { 
+     for ( j = 0; j < cenario[0].length; j++ ) {  
+      if ( cenario[i][j] == 'B' ) {
+        fill(0,0,255);
+        rect(j*tamBloco,i*tamBloco,tamBloco,tamBloco); 
+      }
+    }
+  }
+  
+  for ( i = 0; i < cenario.length; i++ ) { 
+    for ( j = 0; j < cenario[0].length; j++ ) {  
+      if ( cenario[i][j] == 'D'||cenario[i][j] == 'P') {
+	pontox[j]=j*tamBloco+15
+	pontoy[i]=i*tamBloco+15
+        fill(255,255,255);
+        ellipse(pontox[j],pontoy[i],10,10); 
+      }
+    }
+  }
+  
+  if(veloc<=0){
+	  veloc=1
+  }
+  //movimentação
+ if (keyIsDown(65)){
+	if ( ! colisao( Px - veloc - tamBloco/2, Py ) ) { 
+   Px-=veloc
+ }  
+}
+  if (keyIsDown(68)){
+    if ( ! colisao( Px + veloc + tamBloco/2, Py ) ) {
+   Px+=veloc
+}
+}
+  if (keyIsDown(87)){
+	  if ( ! colisao( Px,Py - veloc - tamBloco/2) ) {
+   Py-=veloc
+}
+}
+  if (keyIsDown(83)){
+	  if ( ! colisao( Px, Py + veloc + tamBloco/2) ) {
+   Py+=veloc;
+ }
+}
+//atravessar parede
+if(Px>width){
+	Px=0
+}
+if(Px<0){
+	Px=width
+}
+
+pacMan(Px,Py)
+
+//Pontos
+
+    
+
+ //Fantasmas
+
+ for(i=0;i<numGhost;i++){
+	 
+ Ghostx[i]+=gdx[i]
+
+	
+Ghosty[i]+=gdy[i]
+
+
+ if(Ghostx[i]>width){
+	Ghostx[i]=0
+}
+if(Ghostx[i]<0){
+	Ghostx[i]=width
+}
+if(Ghosty[i]>height){
+	Ghosty[i]=0
+}
+if(Ghosty[i]<0){
+	Ghosty[i]=height
+} 
+}
+
+  for(i=0;i<numGhost;i++){
+	  if(mudardirecao(Ghostx[i],Ghosty[i])){
+		  posC = Math.floor(Ghostx[i]/tamBloco);
+		  posL = Math.floor(Ghosty[i]/ tamBloco);
+		  posDx=(posC*tamBloco)+15
+	          posDy=(posL*tamBloco)+15
+		  if(Ghostx[i]==posDx && Ghosty[i]==posDy){
+		 direcao=Math.floor((Math.random() * 4) + 1);
+			
+			if(direcao==1){
+				if(colisao(Ghostx[i] + veloc + tamBloco/2,Ghosty[i]) ){
+					while(direcao==1){
+					gdx[i]=0
+					gdy[i]=0
+					direcao=Math.floor((Math.random() * 4) + 1);
+					
+				}
+				}
+				else{
+					gdx[i]=veloc
+					gdy[i]=0
+					}
+			
+			
+			}
+			if(direcao==2){
+				if(colisao(Ghostx[i],Ghosty[i] + veloc + tamBloco/2)){
+					while(direcao==2){
+					gdx[i]=0
+					gdy[i]=0
+					direcao=Math.floor((Math.random() * 4) + 1);
+
+					}
+					}
+				
+				else{			
+					gdx[i]=0
+					gdy[i]=veloc
+					
+				
+			}
+		
+		}
+			if(direcao==3){
+				if( colisao(Ghostx[i] - veloc - tamBloco/2,Ghosty[i]) ){
+				 	 while(direcao==3){
+						gdx[i]=0
+						gdy[i]=0
+						direcao=Math.floor((Math.random() * 4) + 1);
+					}
+				}
+				else{
+				  gdx[i]=-veloc
+				    gdy[i]=0
+					
+					
+				
+			}
+				
+	}
+	
+		
+			if(direcao==4){
+				if(  colisao(Ghostx[i],Ghosty[i] - veloc - tamBloco/2)){
+					while(direcao==4){
+						gdx[i]=0
+						gdy[i]=0
+						direcao=Math.floor((Math.random() * 4) + 1);
+					}
+				
+				}
+				else{
+					gdx[i]=0
+					gdy[i]=-veloc
+					
+			}
+			
+			
+		
+		}
+
+}
+direcao=0
+	
+}
+
+}
+for(i=0;i<numGhost;i++){
+ distpg[i]=dist(Px,Py,Ghostx[i]+10,Ghosty[i]+10)
+ fill(256,0,256)
+ ellipse(Ghostx[i],Ghosty[i],28,28)
+}
+
+// 
+ 
+ 
+ //Dificuldade e recorde
+ 
+ if(keyIsDown(38)){
+	 veloc++
+ }
+ if(keyIsDown(40)){
+	 veloc--
+ }
+ if(pontos>recorde){
+	 recorde=pontos
+ }
+ 
+ //Vida, pontos e textos
+ for(i=0;i<numGhost;i++){
+ if(distpg[i]<45){
+	 Px=45
+	 Py=45
+	 vida--
+ }
+}
+
+ if(distpp<40){
+	 
+ }
+ textSize(20);
+ fill(255);
+ text("Vida: " + vida+ "         Pontos: " + pontos + "        Dificuldade: " +veloc +"     Recorde: "+ recorde, 20,20)
+ if(vida<=0){
+	vida=3
+	pontos=0
+	for(i=1;i<numGhost;i++){
+		distpg[i]=90
+	}
+}
+}
