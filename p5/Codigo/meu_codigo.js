@@ -37,7 +37,7 @@ var nomejogo
 var play
 var options
 function preload(){
-	//imgcomeco= loadImage("imagens/pacman.jpg")
+	imgcomeco= loadImage("imagens/pacman.jpg")
 	//imgoptions=loadImage("C:\Users\Lufec\Downloads\Matérias\2º Semestre\LoP\p5\p5\Código\Imagens/Options.jpg")
 	//imgplay=loadImage ("C:\Users\Lufec\Downloads\Matérias\2º Semestre\LoP\p5\p5\Código\Imagens/Play.jpg")
 	
@@ -277,7 +277,7 @@ function draw() {
  frameRate(fps)
  if(tela==1){
 	  background(0);
-//image(imgcomeco,20,20)
+image(imgcomeco,20,20)
 fill(0, 234, 255);
 rect(330, 400, 210, 70, 5);
 rect(330,500,210,70,5);
