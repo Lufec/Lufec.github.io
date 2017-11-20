@@ -714,8 +714,8 @@ direcao=0
 for(i=0;i<numGhost;i++){
  distpg[i]=dist(Px,Py,Ghostx[i],Ghosty[i])
  fill(256,0,256)
- image(imgghost[i],Ghostx[i]-15,Ghosty[i]-15,30,30)
- 
+ //image(imgghost[i],Ghostx[i]-15,Ghosty[i]-15,30,30)
+ rect(Ghostx[i]-15,Ghosty[i]-15,30,30);
 }
  //Recorde
  if(pontos>recorde){
