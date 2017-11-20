@@ -36,6 +36,8 @@ var velocoriginal=8
 var imgghost=[];
 var imgpacman=[];
 var imgmorte=[];
+var morte
+var contFrame=0
 
 function preload(){
 
@@ -690,8 +692,9 @@ direcao=0
 for(i=0;i<numGhost;i++){
  distpg[i]=dist(Px,Py,Ghostx[i],Ghosty[i])
  fill(256,0,256)
- image=(imgghost[i],Ghostx[i]-15,Ghosty[i]-15)
  rect(Ghostx[i]-15,Ghosty[i]-15,30,30)
+ //image(imgghost[i],Ghostx[i]-15,Ghosty[i]-15,30,30)
+ 
 }
  //Recorde
  if(pontos>recorde){
@@ -741,14 +744,21 @@ for(i=0;i<numGhost;i++){
 }
 }
 if(tela==3){
-	 background(0);
-	image (imggameover,20,20,900,400);
-    fill (0,0,255)
+ background(0);
+	image(imggameover,20,20,900,400);
+    fill (0,0,255);
     rect(330,500,210,70,5)
     rect(330,600,210,70,5)
     fill (0)
     text("Menu Inicial", 345,525);
-	text("Tentar Novamente",335,615);
+    text("Clique ou Enter", 335,550);
+	text("Tentar Novamente",335,615)
+	morte= imgmorte[contFrame];
+	image( morte, 410, 870, 60,60);
+	contFrame++;
+  if ( contFrame > 14 ) {
+     contFrame = 1;  
+  }
 	
     if (keyIsDown(8) ) {
        tela = 1;
