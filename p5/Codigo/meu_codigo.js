@@ -33,6 +33,9 @@ var textobonus='Nenhum'
 var imgcomeco
 var imggameover
 var velocoriginal=8
+var imgghost=[];
+var imgpacman=[];
+var imgmorte=[];
 
 function preload(){
 
@@ -267,7 +270,15 @@ function pacMan(posPacX, posPacY) {
 
 function setup() {
   createCanvas(960,930);
-
+	for(i=1;i<15;i++){
+		imgghost[i]= loadImage("imagens/fantasma"+i+".png")
+	}
+	for(i=1;i<4;i++){
+		imgpacman[i]= loadImage("imagens/pacman"+i+".png")
+	}
+	for(i=1;i<12;i++){
+		imgmorte[i]= loadImage("imagens/morte"+i+".png")
+	}
     imgcomeco= loadImage("imagens/pacman.png");
 	imggameover = loadImage("imagens/hqdefault.png");
 
@@ -640,12 +651,10 @@ if(Ghosty[i]<=0){
 					direcao=Math.floor((Math.random() * 4) + 1);
 					}
 					}
-				
 				else{			
 					gdx[i]=0
 					gdy[i]=velocg	
 			}
-		
 		}
 			if(direcao==3){
 				if( colisao(Ghostx[i] - velocg - tamBloco/2,Ghosty[i]) ){
@@ -659,8 +668,7 @@ if(Ghosty[i]<=0){
 				  gdx[i]=-velocg
 				    gdy[i]=0
 				}
-				
-	}
+		}
 			if(direcao==4){
 				if(  colisao(Ghostx[i],Ghosty[i] - velocg - tamBloco/2)){
 					while(direcao==4){
@@ -668,8 +676,7 @@ if(Ghosty[i]<=0){
 						gdy[i]=0
 						direcao=Math.floor((Math.random() * 4) + 1);
 					}
-				
-				}
+			}
 				else{
 					gdx[i]=0
 					gdy[i]=-velocg
@@ -681,9 +688,10 @@ direcao=0
 }
 //desenhar fantasmas e detectar colisao
 for(i=0;i<numGhost;i++){
- distpg[i]=dist(Px,Py,Ghostx[i]+10,Ghosty[i]+10)
+ distpg[i]=dist(Px,Py,Ghostx[i],Ghosty[i])
  fill(256,0,256)
- ellipse(Ghostx[i],Ghosty[i],28,28)
+ image=(imgghost[i],Ghostx[i]-15,Ghosty[i]-15)
+ rect(Ghostx[i]-15,Ghosty[i]-15,30,30)
 }
  //Recorde
  if(pontos>recorde){
@@ -769,24 +777,31 @@ if (tela==8){
 if(tela==9){
 	background(0);
 fill(0, 234, 255);
-rect(330, 400, 210, 70, 5);
-rect(330,500,210,70,5);
-rect(330,600,210,70,5);
-rect(330,700,210,70,5);
-rect(330,800,210,70,5);
+rect(230, 400, 210, 70, 5);
+rect(500,400,210,70,5);
+rect(230,500,210,70,5);
+rect(500,500,210,70,5);
+rect(230,600,210,70,5);
+rect(500,600,210,70,5);
 fill(0, 0, 0);
+
+{
 textSize(20);
-text("Começar no Nível", 360, 435);
-text("Velocidade",360,535);
-text("Frames Por Segundo",360,635);
-text("Número de Bonus",360,735);
-text("Sair",360,835)
+text("Começar no Nível", 260, 425);
+text("Velocidade",530,425);
+text("Frames Por Segundo",250,525);
+text("Número de Bonus",530,525);
+text("Velocidade Fantasmas",240,625);
+text("Sair",530,625)
 text(mudancanivel, 380, 450)
-text(veloc, 360, 550)
-text(fps,360,650)
-text(bonus, 360, 750)
+text(veloc, 560, 450)
+text(fps,360,550)
+text(bonus, 560, 550)
+text(velocg,360,650)
+}
+
   mouseClicked = function() {
-    if (mouseX >= 330 && mouseX <= 540 &&
+    if (mouseX >= 230 && mouseX <= 440 &&
         mouseY >= 400 && mouseY <= 470) {
         mudancanivel++
         if(mudancanivel>=6){
@@ -805,8 +820,8 @@ text(bonus, 360, 750)
 			contagem=996
 		}
     }
-    if(mouseX>=330&& mouseX<=540 &&
-	   mouseY>=500 && mouseY<=570){
+    if(mouseX>=500&& mouseX<=710 &&
+	   mouseY>=400 && mouseY<=470){
 			veloc++
 			velocoriginal++
 			if(veloc>8){
@@ -814,26 +829,36 @@ text(bonus, 360, 750)
 				velocoriginal=1
 			}
 			}
-	if(mouseX>=330&& mouseX<=540 &&
-	   mouseY>=600 && mouseY<=670){
+	if(mouseX>=230&& mouseX<=440 &&
+	   mouseY>=500 && mouseY<=570){
 		   fps+=15
 		   
 		   if(fps>60){
 			   fps=15
 		   }
 	   }
-	 if(mouseX>=330&& mouseX<=540 &&
-	   mouseY>=700 && mouseY<=770){
+	 if(mouseX>=500&& mouseX<=710 &&
+	   mouseY>=500 && mouseY<=570){
 		   bonus++
 		   
 		   if(bonus>15){
 			   bonus=0
 		   }
 	   }
-	   if(mouseX>=330&& mouseX<=540 &&
-	   mouseY>=800 && mouseY<=870){
+	   if(mouseX>=230&& mouseX<=440 &&
+	   mouseY>=600 && mouseY<=670){
+		   velocg++
+		   
+		   if(velocg>5){
+			   velocg=1
+		   }
+	   }
+	   
+	   if(mouseX>=500&& mouseX<=710 &&
+	   mouseY>=600 && mouseY<=670){
 	  tela=1
 }
+	  
 }
 }
 }
