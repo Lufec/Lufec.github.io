@@ -288,6 +288,7 @@ rect(330, 500, 210, 70, 5);
 rect(330,600,210,70,5);
 image (imgplay,430,500);
 image (imgoptions, 430,600);
+fill(0)
 textSize(35);
 text("Jogar	", 360, 435);
 text("Opções",360,535);
