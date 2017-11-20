@@ -519,7 +519,7 @@ if(Py<0){
 	Py=cenario.length*30
 }
 
-image(imgpacman[contPacman],Px+2, Py+2,30,30)
+image(imgpacman[contPacman],Px-15, Py-15,30,30)
 contPacman++
 if(contPacman>4){
 	contPacman=1
