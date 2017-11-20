@@ -274,6 +274,15 @@ function colisaoponto (px,py){
 	
 	}
 }
+//function pacMan(posPacX, posPacY) {
+ // stroke(250,250,5); 
+ // strokeWeight(3); 
+//fill(230,230,0);
+  //arc(posPacX+2, posPacY+2, tamBloco -6, tamBloco-6, PI/6,TWO_PI - PI/6, PIE);
+//  strokeWeight(1); 
+//  fill(0,0,0);
+//  ellipse(posPacX,posPacY-(tamBloco)/5,tamBloco/6, tamBloco/6);    
+//}
 
 
 function setup() {
