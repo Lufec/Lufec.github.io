@@ -294,13 +294,16 @@ image (imgcomeco,20,20,800,450);
 fill(0, 234, 255);
 rect(330, 500, 210, 70, 5);
 rect(330,600,210,70,5);
+rect(330,800,210,70,5);
 fill(0)
 textSize(35);
 text("Jogar	", 360, 535);
 text("Opções",360,635);
-fill(255)
 text("Controle de direção: WASD",240,735)
-text("Desenvolvedor: Luiz Fernando Carbonera Filho, 1A", 100, 835)
+textSize(20)
+text("Créditos Finais",330,835);
+fill(255)
+
 
   mouseClicked = function() {
     if (mouseX >= 330 && mouseX <= 540 &&
@@ -310,6 +313,10 @@ text("Desenvolvedor: Luiz Fernando Carbonera Filho, 1A", 100, 835)
     else if(mouseX>=330&& mouseX<=540 &&
 			mouseY>=600 && mouseY<=670){
 				tela=9
+			}
+	else if(mouseX>=330&& mouseX<=540 &&
+			mouseY>=800 && mouseY<=870){
+				tela=8
 			}
 }
  }
@@ -431,7 +438,9 @@ Px=45
 Py=45
 mudancanivel++
 }
-
+if(contagem==1808&&mudancanivel==6){
+	tela=8
+}
 
   //blocos
 for ( i = 0; i < cenario.length; i++ ) { 
@@ -785,7 +794,12 @@ if(tela==3){
 }
 }
 if (tela==8){
-	
+	background(0);
+fill(255);
+text("Parabéns, vencer este jogo não é facil não",200,400)
+text("habilidades e reflexos você tem!", 200,450)
+text("Desenvolvedor: Luiz Fernando Carbonera Filho , 1A", 200, 650)
+text("(ou você pulou direto pros créditos?)", 200, 900)
 }
 if(tela==9){
 background(0);
@@ -817,7 +831,7 @@ text(velocg,360,650)
     if (mouseX >= 230 && mouseX <= 440 &&
         mouseY >= 400 && mouseY <= 470) {
         mudancanivel++
-        if(mudancanivel>=6){
+        if(mudancanivel>=7){
 			mudancanivel=1
 			};    
 		if(mudancanivel==2){
