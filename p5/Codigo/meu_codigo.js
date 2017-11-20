@@ -41,7 +41,18 @@ var contFrame=1;
 
 function preload(){
 
-
+	for(i=1;i<15;i++){
+		imgghost[i]= loadImage("imagens/fantasma"+i+".png")
+	}
+	for(i=1;i<4;i++){
+		imgpacman[i]= loadImage("imagens/pacman"+i+".png")
+	}
+	for(i=1;i<12;i++){
+		imgmorte[i]= loadImage("imagens/morte"+i+".png")
+	}
+    imgcomeco= loadImage("imagens/pacman.png");
+	imggameover = loadImage("imagens/hqdefault.png");
+	
 	cenario1=[
 	['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
 	['D','P','P','D','D','D','D','D','P','P','P','D','D','P','P','P','P','P','P','D'],
@@ -272,17 +283,7 @@ function pacMan(posPacX, posPacY) {
 
 function setup() {
   createCanvas(960,930);
-	for(i=1;i<15;i++){
-		imgghost[i]= loadImage("imagens/fantasma"+i+".png")
-	}
-	for(i=1;i<4;i++){
-		imgpacman[i]= loadImage("imagens/pacman"+i+".png")
-	}
-	for(i=1;i<12;i++){
-		imgmorte[i]= loadImage("imagens/morte"+i+".png")
-	}
-    imgcomeco= loadImage("imagens/pacman.png");
-	imggameover = loadImage("imagens/hqdefault.png");
+	
 
 }
 
@@ -768,7 +769,7 @@ if(tela==3){
     text("Clique ou Enter", 335,550);
     text("Tente Novamente", 345,625);
 	morte = imgmorte[contFrame];
-	//image(morte, 400, 400,60,60);
+	image(morte, 400, 400,60,60);
      contFrame++;
      if ( contFrame > 12 ) {
         contFrame = 1;  
