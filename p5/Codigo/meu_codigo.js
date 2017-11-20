@@ -769,7 +769,7 @@ if(tela==3){
 	morte = imgmorte[frameMorte];
 	image(morte, 400, 400,60,60);
      contFrame++;
-     if ( frameMorte > 12 ) {
+     if ( frameMorte > 11 ) {
         contFrame = 1;  
      }	
     if (keyIsDown(8) ) {
