@@ -271,10 +271,7 @@ function setup() {
   createCanvas(960,930);
 
     imgcomeco= loadImage("imagens/pacman.png");
-	imgoptions=loadImage("imagens/options.png");
-	imgplay=loadImage ("imagens/play.png");
 
-	
 
 }
 
@@ -286,8 +283,6 @@ image (imgcomeco,20,20,800,450);
 fill(0, 234, 255);
 rect(330, 500, 210, 70, 5);
 rect(330,600,210,70,5);
-image (imgplay,430,500);
-image (imgoptions, 430,600);
 fill(0)
 textSize(35);
 text("Jogar	", 360, 535);
