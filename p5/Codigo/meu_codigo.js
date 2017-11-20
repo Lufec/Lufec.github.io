@@ -298,6 +298,10 @@ fill(0)
 textSize(35);
 text("Jogar	", 360, 535);
 text("Opções",360,635);
+fill(255)
+text("Controle de direção: WASD",240,735)
+text("Desenvolvedor: Luiz Fernando Carbonera Filho, 1A", 100, 835)
+
   mouseClicked = function() {
     if (mouseX >= 330 && mouseX <= 540 &&
         mouseY >= 500 && mouseY <= 570) {
@@ -752,14 +756,7 @@ if(tela==3){
     fill (0)
     text("Menu Inicial", 345,525);
     text("Clique ou Enter", 335,550);
-	text("Tentar Novamente",335,615)
-	morte= imgmorte[contFrame];
-	image( morte, 410, 870, 60,60);
-	contFrame++;
-  if ( contFrame > 14 ) {
-     contFrame = 1;  
-  }
-	
+		
     if (keyIsDown(8) ) {
        tela = 1;
        tempo = 0; 
