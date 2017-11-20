@@ -31,11 +31,7 @@ var ligarbonus=0
 var velocg=5
 var textobonus='Nenhum'
 var imgcomeco
-var imgplay
-var imgoptions
-var nomejogo
-var play
-var options
+var imggameover
 
 function preload(){
 
@@ -271,7 +267,7 @@ function setup() {
   createCanvas(960,930);
 
     imgcomeco= loadImage("imagens/pacman.png");
-
+	imggameover = loadImage("imagens/hqdefault.png");
 
 }
 
@@ -736,23 +732,44 @@ for(i=0;i<numGhost;i++){
 }
 if(tela==3){
 	 background(0);
-    textSize(32); 
-    fill(135,206,235);
-    text("Tela 3 - FIM", 50, 160);
+	image (imggameover,20,20,900,400);
     fill (0,0,255)
-    rect(330,400,210,70,5)
     rect(330,500,210,70,5)
+    rect(330,600,210,70,5)
+    fill (0)
+    text("Menu Inicial", 345,525);
+	text("Tentar Novamente",335,615);
+	
     if (keyIsDown(8) ) {
        tela = 1;
        tempo = 0; 
     } 
     mouseClicked = function() {
     if (mouseX >= 330 && mouseX <= 540 &&
-        mouseY >= 400 && mouseY <= 470) {
+        mouseY >= 500 && mouseY <= 570) {
         tela=1;
         tempo=0;
      
  }
+     if (mouseX >= 330 && mouseX <= 540 &&
+        mouseY >= 600 && mouseY <= 670) {
+		tela=2
+		if(mudancanivel==1){
+			contagem=0
+		}
+		if(mudancanivel==2){
+			contagem=180
+		}
+		if(mudancanivel==3){
+			contagem=355
+		}
+		if(mudancanivel==4){
+			contagem=686
+		}
+		if(mudancanivel==5){
+			contagem=996
+		}
+		}
 }
 }
 if (tela==8){
