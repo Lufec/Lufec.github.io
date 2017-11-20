@@ -29,15 +29,15 @@ var tela=1
 var ligarfantasma=0
 var ligarbonus=0
 var velocg=5
-var textobonus='Nenhum'
-var imgcomeco
-var imggameover
+var textobonus='Nenhum';
+var imgcomeco;
+var imggameover;
 var velocoriginal=8
 var imgghost=[];
 var imgpacman=[];
 var imgmorte=[];
-var morte
-var contFrame=0
+var morte;
+var contFrame=1;
 
 function preload(){
 
@@ -299,10 +299,11 @@ fill(0)
 textSize(35);
 text("Jogar	", 360, 535);
 text("Opções",360,635);
-text("Controle de direção: WASD",240,735)
-textSize(20)
+textSize(25)
 text("Créditos Finais",330,835);
 fill(255)
+textSize(35)
+text("Controle de direção: WASD",240,735)
 
 
   mouseClicked = function() {
@@ -765,12 +766,13 @@ if(tela==3){
     fill (0)
     text("Menu Inicial", 345,525);
     text("Clique ou Enter", 335,550);
+    text("Tente Novamente", 345,625);
 	morte = imgmorte[contFrame];
-  image( morte, 400, 400);
-  contFrame++;
-  if ( contFrame > 12 ) {
-     contFrame = 0;  
-  }	
+	//image(morte, 400, 400,60,60);
+     contFrame++;
+     if ( contFrame > 12 ) {
+        contFrame = 1;  
+     }	
     if (keyIsDown(8) ) {
        tela = 1;
        tempo = 0; 
