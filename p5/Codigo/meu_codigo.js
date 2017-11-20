@@ -37,7 +37,9 @@ var imgghost=[];
 var imgpacman=[];
 var imgmorte=[];
 var morte;
-var contFrame=1;
+var contFrame=1
+var frameMorte;
+var contPacman=1;
 
 function preload(){
 
@@ -50,6 +52,7 @@ function preload(){
 	for(i=1;i<12;i++){
 		imgmorte[i]= loadImage("imagens/morte"+i+".png")
 	}
+	
     imgcomeco= loadImage("imagens/pacman.png");
 	imggameover = loadImage("imagens/hqdefault.png");
 	
@@ -271,19 +274,10 @@ function colisaoponto (px,py){
 	
 	}
 }
-function pacMan(posPacX, posPacY) {
-  stroke(250,250,5); 
-  strokeWeight(3); 
-  fill(230,230,0);
-  arc(posPacX+2, posPacY+2, tamBloco -6, tamBloco-6, PI/6,TWO_PI - PI/6, PIE);
-  strokeWeight(1); 
-  fill(0,0,0);
-  ellipse(posPacX,posPacY-(tamBloco)/5,tamBloco/6, tamBloco/6);    
-}
+
 
 function setup() {
   createCanvas(960,930);
-	
 
 }
 
@@ -525,7 +519,11 @@ if(Py<0){
 	Py=cenario.length*30
 }
 
-pacMan(Px,Py)
+image(imgpacman[contPacman],Px+2, Py+2,30,30)
+contPacman++
+if(contPacman>4){
+	contPacman=1
+}
 
 //Pontuação
 if(colisaoponto(Px,Py)){
@@ -707,8 +705,7 @@ direcao=0
 for(i=0;i<numGhost;i++){
  distpg[i]=dist(Px,Py,Ghostx[i],Ghosty[i])
  fill(256,0,256)
- rect(Ghostx[i]-15,Ghosty[i]-15,30,30)
- //image(imgghost[i],Ghostx[i]-15,Ghosty[i]-15,30,30)
+ image(imgghost[i],Ghostx[i]-15,Ghosty[i]-15,30,30)
  
 }
  //Recorde
@@ -768,10 +765,11 @@ if(tela==3){
     text("Menu Inicial", 345,525);
     text("Clique ou Enter", 335,550);
     text("Tente Novamente", 345,625);
-	morte = imgmorte[contFrame];
+    frameMorte=Math.floor((contFrame/fps)+1)
+	morte = imgmorte[frameMorte];
 	image(morte, 400, 400,60,60);
      contFrame++;
-     if ( contFrame > 12 ) {
+     if ( frameMorte > 12 ) {
         contFrame = 1;  
      }	
     if (keyIsDown(8) ) {
