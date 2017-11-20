@@ -9,7 +9,7 @@ var gdy=[];
 var distpg=[];
 var pontox=[];
 var pontoy=[];
-var veloc = 15
+var veloc = 8
 var vida=3
 var pontos=0
 var recorde=0;
@@ -32,6 +32,7 @@ var velocg=5
 var textobonus='Nenhum'
 var imgcomeco
 var imggameover
+var velocoriginal=8
 
 function preload(){
 
@@ -51,26 +52,26 @@ function preload(){
 	['D','B','B','B','B','B','D','D','B','B','B','D','D','B','B','D','P','P','D','P'],
 	['D','P','P','P','P','P','D','D','P','P','P','D','D','P','P','D','P','D','D','D'],
 	['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','L']
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L']
+	
 	
 	
 	]
@@ -98,16 +99,17 @@ function preload(){
 	['B','P','B','P','B','B','B','B','B','B','B','B','B','B','B','B','B','P','B','P','B'],
 	['B','D','P','D','P','P','P','P','P','P','P','P','P','P','P','P','P','D','P','D','B'],
 	['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','L'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V']
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L']
+	
 	]	
 	//225 P's e D's
 	
@@ -135,14 +137,14 @@ function preload(){
 	['B','P','B','P','B','P','B','P','B','P','B','P','B','P','B','P','B','P','B','P','B'],
 	['P','D','P','D','P','D','P','D','P','D','P','D','P','D','P','D','P','D','P','D','P'],
 	['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
-	['V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V','V'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
+	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L']
 	
 	]
 	
@@ -560,22 +562,24 @@ if(bonus==2){
 //+ velocidade
 if(bonus==3){
 	if(t<(8*fps)){
-		veloc=8
+		if(veloc=velocoriginal){
+		veloc=velocoriginal*(1.5)
+		}
 		t++
 		textobonus='Velocidade Extra'
 	}
 	else{
 		t=0
 		bonus=0
-		veloc=5
+		veloc=velocoriginal
 	}
 	
 }
 if(bonus==0){
 	textobonus="Nenhum"
 }
-if(bonus!=3&&veloc==8){ //debbug ( coletar bonus 3 e outro bonus enquanto o 3 não expirar)
-	veloc=5
+if(bonus!=3&&veloc==(velocoriginal*(1.5))){ //debbug ( coletar bonus 3 e outro bonus enquanto o 3 não expirar)
+	veloc=velocoriginal
 	t=0
 }
 
@@ -726,7 +730,6 @@ for(i=0;i<numGhost;i++){
 		bonusy[i]=1000
 	}
 	contagem=0
-	mudancanivel=1
 	tela=3
 }
 }
@@ -749,26 +752,14 @@ if(tela==3){
         mouseY >= 500 && mouseY <= 570) {
         tela=1;
         tempo=0;
+        mundancanivel=1
      
  }
      if (mouseX >= 330 && mouseX <= 540 &&
         mouseY >= 600 && mouseY <= 670) {
 		tela=2
-		if(mudancanivel==1){
-			contagem=0
-		}
-		if(mudancanivel==2){
-			contagem=180
-		}
-		if(mudancanivel==3){
-			contagem=355
-		}
-		if(mudancanivel==4){
-			contagem=686
-		}
-		if(mudancanivel==5){
-			contagem=996
-		}
+		mudancanivel=1
+		contagem=0
 		}
 }
 }
@@ -817,8 +808,10 @@ text(bonus, 360, 750)
     if(mouseX>=330&& mouseX<=540 &&
 	   mouseY>=500 && mouseY<=570){
 			veloc++
-			if(veloc>=15){
+			velocoriginal++
+			if(veloc>8){
 				veloc=1
+				velocoriginal=1
 			}
 			}
 	if(mouseX>=330&& mouseX<=540 &&
