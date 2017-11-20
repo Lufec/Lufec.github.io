@@ -43,12 +43,12 @@ var contPacman=1;
 
 function preload(){
 
-	for(i=1;i<15;i++){
-		imgghost[i]= loadImage("imagens/fantasma"+i+".png")
-	}
-	for(i=1;i<4;i++){
-		imgpacman[i]= loadImage("imagens/pacman"+i+".png")
-	}
+	//for(i=1;i<15;i++){
+	//	imgghost[i]= loadImage("imagens/fantasma"+i+".png")
+	//}
+	//for(i=1;i<4;i++){
+	//	imgpacman[i]= loadImage("imagens/pacman"+i+".png")
+	//}
 	for(i=1;i<12;i++){
 		imgmorte[i]= loadImage("imagens/morte"+i+".png")
 	}
@@ -90,9 +90,6 @@ function preload(){
 	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
 	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L'],
 	['L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L','L']
-	
-	
-	
 	]
 	//130
 	
@@ -771,12 +768,14 @@ if(tela==3){
     text("Clique ou Enter", 335,550);
     text("Tente Novamente", 345,625);
     frameMorte=Math.floor((2*contFrame/fps)+1)
+    if(frameMorte>11|| tela!=3){
+		contFrame=1;
+		frameMorte=1;
+	}
 	morte = imgmorte[frameMorte];
 	image(morte, 400, 400,60,60);
      contFrame++;
-     if ( frameMorte > 11 || tela !=3) {
-        contFrame = 1;  
-     }	
+	
     if (keyIsDown(8) ) {
        tela = 1;
        tempo = 0; 
