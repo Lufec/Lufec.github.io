@@ -756,7 +756,12 @@ if(tela==3){
     fill (0)
     text("Menu Inicial", 345,525);
     text("Clique ou Enter", 335,550);
-		
+	morte = imgmorte[contFrame];
+  image( morte, 400, 400);
+  contFrame++;
+  if ( contFrame > 12 ) {
+     contFrame = 0;  
+  }	
     if (keyIsDown(8) ) {
        tela = 1;
        tempo = 0; 
