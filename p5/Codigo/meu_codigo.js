@@ -796,10 +796,11 @@ if(tela==3){
 if (tela==8){
 	background(0);
 fill(255);
-text("Parabéns, vencer este jogo não é facil não",200,400)
-text("habilidades e reflexos você tem!", 200,450)
-text("Desenvolvedor: Luiz Fernando Carbonera Filho , 1A", 200, 650)
-text("(ou você pulou direto pros créditos?)", 200, 900)
+textSize(32);
+text("Parabéns, vencer este jogo não é facil não",100,400)
+text("habilidades e reflexos você tem!", 100,450)
+text("Desenvolvedor: Luiz Fernando Carbonera Filho , 1A", 100, 650)
+text("(ou você pulou direto pros créditos?)", 100, 900)
 }
 if(tela==9){
 background(0);
