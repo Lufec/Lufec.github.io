@@ -274,15 +274,15 @@ function colisaoponto (px,py){
 	
 	}
 }
-//function pacMan(posPacX, posPacY) {
- // stroke(250,250,5); 
- // strokeWeight(3); 
-//fill(230,230,0);
-  //arc(posPacX+2, posPacY+2, tamBloco -6, tamBloco-6, PI/6,TWO_PI - PI/6, PIE);
-//  strokeWeight(1); 
-//  fill(0,0,0);
-//  ellipse(posPacX,posPacY-(tamBloco)/5,tamBloco/6, tamBloco/6);    
-//}
+function pacMan(posPacX, posPacY) {
+ stroke(250,250,5); 
+ strokeWeight(3); 
+fill(230,230,0);
+arc(posPacX+2, posPacY+2, tamBloco -6, tamBloco-6, PI/6,TWO_PI - PI/6, PIE);
+  strokeWeight(1); 
+  fill(0,0,0);
+  ellipse(posPacX,posPacY-(tamBloco)/5,tamBloco/6, tamBloco/6);    
+}
 
 
 function setup() {
@@ -528,11 +528,7 @@ if(Py<0){
 	Py=cenario.length*30
 }
 
-image(imgpacman[contPacman],Px-15, Py-15,30,30)
-contPacman++
-if(contPacman>4){
-	contPacman=1
-}
+pacMan(Px,Py);
 
 //Pontuação
 if(colisaoponto(Px,Py)){
