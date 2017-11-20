@@ -270,9 +270,9 @@ function pacMan(posPacX, posPacY) {
 function setup() {
   createCanvas(960,930);
 
-    imgcomeco= loadImage("imagens/pacman.jpg");
-	imgoptions=loadImage("imagens/options.jpg");
-	imgplay=loadImage ("imagens/play.jpg");
+    imgcomeco= loadImage("imagens/pacman.png");
+	imgoptions=loadImage("imagens/options.png");
+	imgplay=loadImage ("imagens/play.png");
 
 	
 
@@ -290,8 +290,8 @@ image (imgplay,430,500);
 image (imgoptions, 430,600);
 fill(0)
 textSize(35);
-text("Jogar	", 360, 435);
-text("Opções",360,535);
+text("Jogar	", 360, 535);
+text("Opções",360,635);
   mouseClicked = function() {
     if (mouseX >= 330 && mouseX <= 540 &&
         mouseY >= 500 && mouseY <= 570) {
