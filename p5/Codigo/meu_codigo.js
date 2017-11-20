@@ -710,8 +710,7 @@ for(i=0;i<numGhost;i++){
  text("Vida: " + vida+ "         Pontos: " + pontos 	  +"     Recorde: "+ recorde + "          Bonus   "+ textobonus, 20,20)
  
  //reinício
- if(vida<=0){
-	vida=3
+ if(vida==0){
 	pontos=0
 	for ( i = 0; i < cenario.length; i++ ) { 
     for ( j = 0; j < cenario[0].length; j++ ) {  
@@ -761,6 +760,7 @@ if(tela==3){
         tela=1;
         tempo=0;
         mundancanivel=1
+        vida=3
      
  }
      if (mouseX >= 330 && mouseX <= 540 &&
@@ -768,6 +768,7 @@ if(tela==3){
 		tela=2
 		mudancanivel=1
 		contagem=0
+		vida=3
 		}
 }
 }
@@ -775,7 +776,7 @@ if (tela==8){
 	
 }
 if(tela==9){
-	background(0);
+background(0);
 fill(0, 234, 255);
 rect(230, 400, 210, 70, 5);
 rect(500,400,210,70,5);
@@ -785,7 +786,7 @@ rect(230,600,210,70,5);
 rect(500,600,210,70,5);
 fill(0, 0, 0);
 
-{
+
 textSize(20);
 text("Começar no Nível", 260, 425);
 text("Velocidade",530,425);
@@ -798,7 +799,7 @@ text(veloc, 560, 450)
 text(fps,360,550)
 text(bonus, 560, 550)
 text(velocg,360,650)
-}
+
 
   mouseClicked = function() {
     if (mouseX >= 230 && mouseX <= 440 &&
