@@ -770,11 +770,11 @@ if(tela==3){
     text("Menu Inicial", 345,525);
     text("Clique ou Enter", 335,550);
     text("Tente Novamente", 345,625);
-    frameMorte=Math.floor((contFrame/fps)+1)
+    frameMorte=Math.floor((2*contFrame/fps)+1)
 	morte = imgmorte[frameMorte];
 	image(morte, 400, 400,60,60);
      contFrame++;
-     if ( frameMorte > 11 ) {
+     if ( frameMorte > 11 || tela !=3) {
         contFrame = 1;  
      }	
     if (keyIsDown(8) ) {
